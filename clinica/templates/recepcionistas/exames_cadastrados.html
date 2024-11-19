@@ -1,0 +1,37 @@
+{% extends "base_recepcionista.html" %}
+{% load static %}
+
+{% block 'dashboard' %}
+
+<div class="bar-top">
+    <a href="{% url 'cadastrar_exame' %}"><div class="btn-bar-top">Cadastrar Exame</div></a>
+</div>
+<table class="table-agendas">
+  <div class="columns">
+  <thead class="">
+    <tr>
+      <th class="column">Código</th>
+      <th class="column">Exame</th>
+      <th class="column">Status</th>
+      <th class="column">Descrição</th>
+      <th class="column">Valor</th>
+    </tr>
+  </thead>
+  </div>
+  <tbody class="lines-exame">
+    {% for exame in exames %}
+    <tr>
+      <td class="line-exame">{{ exame.codigo }}</td>
+      <td class="line-exame">{{ exame.nome }}</td>
+      <td class="line-exame">{{ exame.ativo }}</td>
+      <td class="line-exame">{{ exame.descricao }}</td>
+      <td class="line-exame">{{ exame.valor }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="6">Nenhum exame cadastrado.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base_recepcionista.html" %}
+{% load static %}
+
+{% block 'dashboard' %}
+
+<div class="bar-top">
+    <a href="{% url 'cadastrar_especialidade' %}"><div class="btn-bar-top">Cadastrar Especialidade</div></a>
+</div>
+<table class="table-agendas">
+  <div class="columns">
+  <thead class="">
+    <tr>
+      <th class="column">Código</th>
+      <th class="column">Especialidade</th>
+      <th class="column">Valor</th>
+      <th class="column">Descrição</th>
+
+    </tr>
+  </thead>
+  </div>
+  <tbody class="lines-exame">
+    {% for especialidade in especialidades %}
+    <tr>
+      <td class="line-exame">{{ especialidade.codigo }}</td>
+      <td class="line-exame">{{ especialidade.nome }}</td>
+      <td class="line-exame">{{ especialidade.valor }}</td>
+      <td class="line-exame">{{ especialidade.descricao }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="6">Nenhuma especialidade cadastrada.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

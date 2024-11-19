@@ -1,0 +1,42 @@
+{% extends "base_recepcionista.html" %}
+{% load static %}
+
+{% block 'dashboard' %}
+
+<div class="bar-top">
+  <a href="{% url 'cadastrar_medico' %}">
+    <div class="btn-bar-top">Cadastrar Medico</div>
+  </a>
+</div>
+
+<table class="table-agendas">
+  <div class="columns">
+    <thead class="">
+      <tr>
+        <th class=" column6">Nome</th>
+        <th class=" column6">CPF</th>
+        <th class=" column6">Especialidade</th>
+        <th class=" column6">Data de Nascimento</th>
+        <th class=" column6">Endereço</th>
+        <th class=" column6">Telefone</th>
+      </tr>
+    </thead>
+  </div>
+  <tbody class="lines-exame">
+    {% for medico in medicos %}
+    <tr>
+      <td class="line-exame ">{{ medico.nome }}</td>
+      <td class="line-exame">{{ medico.cpf }}</td>
+      <td class="line-exame">{{ medico.especialidade.nome }}</td>
+      <td class="line-exame">{{ medico.data_nascimento }}</td>
+      <td class="line-exame">{{ medico.endereco }}</td>
+      <td class="line-exame">{{ medico.telefone }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="6">Nenhum médico cadastrado.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
