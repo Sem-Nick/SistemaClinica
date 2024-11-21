@@ -1,0 +1,39 @@
+{% extends "base_recepcionista.html" %}
+{% load static %}
+
+{% block 'dashboard' %}
+
+<div class="bar-top">
+    <a href="{% url 'cadastrar_convenio' %}"><div class="btn-bar-top">Cadastrar Convênio</div></a>
+</div>
+<table class="table-agendas">
+  <div class="columns">
+  <thead class="">
+    <tr>
+      <th class="column6">Código</th>
+      <th class="column6">Nome</th>
+      <th class="column6">Status</th>
+      <th class="column6">Validade</th>
+      <th class="column6">Contato</th>
+      <th class="column6">Cobertura</th>
+    </tr>
+  </thead>
+  </div>
+  <tbody class="lines-exame">
+    {% for convenio in convenios %}
+    <tr>
+      <td class="line-exame">{{ convenio.codigo }}</td>
+      <td class="line-exame">{{ convenio.nome }}</td>
+      <td class="line-exame">{{ convenio.ativo }}</td>
+      <td class="line-exame">{{ convenio.validade }}</td>
+      <td class="line-exame">{{ convenio.contato }}</td>
+      <td class="line-exame">{{ convenio.cobertura }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="6">Nenhum convênio cadastrado.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

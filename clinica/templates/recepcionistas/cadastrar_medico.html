@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'dashboard' %}
+<div class="principal">
+    <div class="title-bar">
+        <div class="title">
+            <h1>Cadastro de Médico</h1>
+        </div>
+    </div>
+
+    <div class="agendamento">
+        <form method="POST" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="linha1">
+                <div class="lines">
+                    <label for="nome">Nome:</label>
+                    <input type="text" placeholder="Ex.: Carleando Noleto"
+                        class="form-control {% if form.nome.errors %}is-invalid{% endif %}" id="id_nome" name="nome"
+                        value="{{ form.nome.value|default_if_none:'' }}" maxlength="100" required>
+                    {% if form.nome.errors %}
+                    <div class="invalid-feedback">{{ form.nome.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="lines">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" placeholder="Ex.: 123.456.789-10"
+                        class="form-control {% if form.cpf.errors %}is-invalid{% endif %}" id="id_cpf" name="cpf"
+                        value="{{ form.cpf.value|default_if_none:'' }}" maxlength="14"
+                        pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+                    {% if form.cpf.errors %}
+                    <div class="invalid-feedback">{{ form.cpf.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="lines">
+                    <label for="data-nascimento">Data de nascimento:</label>
+                    <input type="date" class="form-control {% if form.data_nascimento.errors %}is-invalid{% endif %}"
+                        id="id_data_nascimento" name="data_nascimento"
+                        value="{{ form.data_nascimento.value|default_if_none:'' }}" required>
+                </div>
+
+
+            </div>
+
+            <div class="linha2">
+                <div class="lines">
+                    <label for="email">Email:</label>
+                    <input type="email" placeholder="Ex.: meunome@gmail.com" id="id_email" name="email"
+                        value="{{ form.email.value|default_if_none:'' }}" maxlength="100" required>
+                </div>
+
+                <div class="lines">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" placeholder="Ex.: 99-9999-9999"
+                        class="form-control {% if form.telefone.errors %}is-invalid{% endif %}" id="id_telefone"
+                        name="telefone" value="{{ form.telefone.value|default_if_none:'' }}" maxlength="15"
+                        pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}" required>
+                    {% if form.telefone.errors %}
+                    <div class="invalid-feedback">{{ form.telefone.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="lines">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" placeholder="Ex.: Rua Dirce Oliveira, Ininga" name="endereco"
+                        value="{{ form.endereco.value|default_if_none:'' }}"
+                        class="form-control {% if form.endereco.errors %}is-invalid{% endif %}" required>
+                    {% if form.endereco.errors %}
+                    <div class="invalid-feedback">{{ form.endereco.errors }}</div>
+                    {% endif %}
+                </div>
+
+            </div>
+
+            <div class="linha3">
+                <div class="lines">
+                    <label for="sexo">Sexo:</label>
+                    <select name="sexo" id="id_sexo" class="form-control {% if form.sexo.errors %}is-invalid{% endif %}" required>
+                        <option value="M" {% if form.sexo.value == 'M' %}selected{% endif %}>Masculino</option>
+                        <option value="F" {% if form.sexo.value == 'F' %}selected{% endif %}>Feminino</option>
+                    </select>
+                    {% if form.sexo.errors %}
+                        <div class="invalid-feedback">{{ form.sexo.errors }}</div>
+                    {% endif %}
+                </div>
+                
+                <label for="especialidade">Especialidade:</label>
+                <select name="especialidade" id="id_especialidade"
+                    class="form-control {% if form.especialidade.errors %}is-invalid{% endif %}" required>
+                    {% for especialidade in form.especialidade.field.queryset %}
+                        <option value="{{ especialidade.id }}" {% if form.especialidade.value|stringformat:"s" == especialidade.id|stringformat:"s" %}selected{% endif %}>
+                            {{ especialidade.nome }}
+                        </option>
+                    {% endfor %}
+                </select>
+                {% if form.especialidade.errors %}
+                    <div class="invalid-feedback">{{ form.especialidade.errors }}</div>
+                {% endif %}
+
+                <div class="lines">
+                    <label for="senha">Senha:</label>
+                    <input type="password" placeholder="Senha"
+                        class="form-control {% if form.senha.errors %}is-invalid{% endif %}" id="id_senha" name="senha"
+                        value="{{ form.senha.value|default_if_none:'' }}" maxlength="128" required>
+                    {% if form.senha.errors %}
+                    <div class="invalid-feedback">{{ form.senha.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success" aria-label="Salvar médico">Salvar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

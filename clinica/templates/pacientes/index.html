@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'dashboard' %}
+    <div class="menu">
+        <div class="option">
+            <a href="exames.html">Exames</a>
+        </div>
+
+        <div class="option">
+            <a href="especialidades.html">Especialidades</a>
+        </div>
+
+        <div class="option">
+            <a href="convenios.html">Convênios</a>
+        </div>
+
+        <div class="option">
+            <a href="{% url 'agendar_exame' %}">Agendar Exame</a>
+        </div>
+
+        <div class="option">
+            <a href="agendamento-consulta.html">Agendar Consulta</a>
+        </div>
+
+        <div class="option">
+            <a href="">Sobre</a>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="cards">
+        <div class="card">
+            <img src="{% static 'img/Card1/Card1.svg' %}">
+        </div>
+
+        <div class="card">
+            <img src="{% static 'img/Card1/Card2.svg' %}">
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="cards-line1">
+        <div class="line1">
+            <div>
+                <img src="{% static 'img/Card2/Card2.1.svg' %}">
+            </div>
+
+            <div>
+                <img src="{% static 'img/Card2/Card2.2.svg' %}">
+            </div>
+
+            <div>
+                <img src="{% static 'img/Card2/Card2.3.svg' %}">
+            </div>
+        </div>
+    </div>
+
+    <div class="cards-line2">
+        <div class="line2">
+            <div>
+                <img src="{% static 'img/Card2/Card2.4.svg' %}">
+            </div>
+
+            <div>
+                <img src="{% static 'img/Card2/Card2.5.svg' %}">
+            </div>
+        </div>
+    </div>
+
+    <div class="cards-line3">
+        <div class="line3">
+            <div>
+                <img src="{% static 'img/Card2/Card2.6.svg' %}">
+            </div>
+
+            <div>
+                <img src="{% static 'img/Card2/Card2.7.svg' %}">
+            </div>
+
+            <div>
+                <img src="{% static 'img/Card2/Card2.8.svg' %}">
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <footer class="rodape">
+        <div class="content">
+            <div class="fotos">
+                <div class="foto1">
+                    <!-- <img src="fotos/Rodape/Foto1.svg">  -->
+                </div>
+
+                <div class="foto2">
+                    <!-- <img src="fotos/Rodape/Foto2.svg">  -->
+                </div>
+            </div>
+
+            <div class="logo-rodape">
+                <img src="fotos/Rodape/Logo-Rodape.svg" alt="">                
+            </div> 
+
+            <div class="sobre-contatos">
+                <h1>Contatos</h1>
+            </div>
+        </div>
+    </footer> 
+</body>
+{% endblock %}

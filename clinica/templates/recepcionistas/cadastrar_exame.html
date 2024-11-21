@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'dashboard' %}
+<div class="principal">
+    <div class="title-bar">
+        <div class="title">
+            <h1>Cadastro de Exame</h1>
+        </div>
+    </div>
+
+    <div class="agendamento">
+        <form method="POST" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="linha1">
+                <div class="lines">
+                    <label for="codigo">Código:</label>
+                    <input type="text" placeholder="Ex.: CARD001" class="form-control {% if form.codigo.errors %}is-invalid{% endif %}" 
+                        id="id_codigo" name="codigo" value="{{ form.codigo.value|default_if_none:'' }}" maxlength="10" required>
+                    {% if form.codigo.errors %}
+                        <div class="invalid-feedback">{{ form.codigo.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="lines">
+                    <label for="nome">Exame:</label>
+                    <input type="text" placeholder="Ex.: Cardiologia" class="form-control {% if form.nome.errors %}is-invalid{% endif %}" 
+                        id="id_nome" name="nome" value="{{ form.nome.value|default_if_none:'' }}" maxlength="100" required>
+                    {% if form.nome.errors %}
+                        <div class="invalid-feedback">{{ form.nome.errors }}</div>
+                    {% endif %}
+                </div>
+
+            </div>
+
+            <div class="linha2">
+                <div class="lines">
+                    <label for="valor">Valor:</label>
+                    <input type="text" placeholder="Ex.: 120.00" class="form-control {% if form.valor.errors %}is-invalid{% endif %}" 
+                        id="id_valor" name="valor" value="{{ form.valor.value|default_if_none:'' }}" required>
+                    {% if form.valor.errors %}
+                        <div class="invalid-feedback">{{ form.valor.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="lines">
+                    <label for="ativo">Ativo:</label>
+                    <input type="checkbox" class="form-control {% if form.ativo.errors %}is-invalid{% endif %}" 
+                        id="id_ativo" name="ativo" {% if form.ativo.value %}checked{% endif %}>
+                    {% if form.ativo.errors %}
+                        <div class="invalid-feedback">{{ form.ativo.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="linha3">
+                <div class="lines">
+                    <label for="descricao">Descrição:</label>
+                    <textarea class="form-control {% if form.descricao.errors %}is-invalid{% endif %}" 
+                        id="id_descricao" name="descricao" placeholder="Descrição sobre o exame" rows="4">{{ form.descricao.value|default_if_none:'' }}</textarea>
+                    {% if form.descricao.errors %}
+                        <div class="invalid-feedback">{{ form.descricao.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success">Salvar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

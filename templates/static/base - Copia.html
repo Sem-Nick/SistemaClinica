@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="imagem/svg" href="{% static 'img/cabecalho.svg' %}">    
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    
+    <title>Derma Doctor | DD</title>
+
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="{% static 'img/logo.svg' %}" class="">
+            </a>
+        </div>
+        
+    </div>
+    <div class="sub-nav">
+        <div class="endereco">
+            <a href="https://www.google.com/maps/place/R.+F%C3%A9lix+Pacheco,+1825+-+Centro+(Sul),+Teresina+-+PI,+64001-160/@-5.0908739,-42.8081011,17z/data=!3m1!4b1!4m6!3m5!1s0x78e3761076ab9a5:0x822b2e206d199bc7!8m2!3d-5.0908739!4d-42.8081011!16s%2Fg%2F11bw40d14q?entry=ttu"
+                target="_blank">R. Félix Pacheco, 1825 - Centro (Sul) Teresina/PI-64001-160</a>
+        </div>
+
+        <div class="contato">
+            <!-- <p>Telefone: WPP Instagram</p> -->
+            <a href="">
+                <img src="{% static 'img/icons/icon-wpp.svg' %}">
+            </a>
+            <a href="https://www.instagram.com/dermadoctorsaude?igsh=aWZwbjhmczZjMHZn" target="_blank">
+                <img src="{% static 'img/icons/icon-insta.svg' %}">
+            </a>
+            <a href="">
+                <img src="{% static 'img/icons/icon-facebook.svg' %}">
+            </a>
+            <a href="">
+                <img src="{% static 'img/icons/icon-x.svg' %}">
+            </a>
+        </div>
+        
+    </div>
+
+        <div class="">
+            <div class="">
+            
+              {% block 'dashboard'%}
+      
+              {% endblock %}
+              
+            </div>
+        </div>
+    </div>
+</body>
+</html>

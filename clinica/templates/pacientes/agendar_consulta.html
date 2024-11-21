@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'dashboard' %}
+<div class="principal">
+    <div class="title-bar">
+        <div class="title">
+            <h1>Agende sua consulta na DermaDoctor!</h1>
+        </div>
+        <div class="text">
+            A 12 anos cuidando da sua saúde
+        </div>
+    </div>
+
+    <div class="agendamento">
+        <form method="POST" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <div class="linha1">
+                <div class="lines">
+                    <label for="nome">Nome:</label>
+                    <input type="text" placeholder="Ex.: Carleando Noleto" class="form-control {% if form.nome.errors %}is-invalid{% endif %}" 
+                        id="id_nome" name="nome" value="{{ form.nome.value|default_if_none:'' }}" maxlength="100" required>
+                    {% if form.nome.errors %}
+                        <div class="invalid-feedback">{{ form.nome.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="lines">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" placeholder="Ex.: 123.456.789-10" class="form-control {% if form.cpf.errors %}is-invalid{% endif %}"
+                        id="id_cpf" name="cpf" value="{{ form.cpf.value|default_if_none:'' }}" maxlength="11" required>
+                    {% if form.cpf.errors %}
+                        <div class="invalid-feedback">{{ form.cpf.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="lines">
+                    <label for="data-nascimento">Data de nascimento:</label>
+                    <input type="date" class="form-control {% if form.data_nascimento.errors %}is-invalid{% endif %}"
+                        id="id_data_nascimento" name="data_nascimento" value="{{ form.data_nascimento.value|default_if_none:'' }}" maxlength="11" required>
+                </div>
+            </div>
+
+            <div class="linha2">
+                <div class="lines">
+                    <label for="email">Email:</label>
+                    <input type="email" placeholder="Ex.: meunome@gmail.com" 
+                        id="id_email" name="email" value="{{ form.email.value|default_if_none:'' }}" maxlength="100" required>
+                </div>
+
+                <div class="lines">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}" placeholder="Ex.: 99-9999-9999"
+                        id="id_telefone" name="telefone" value="{{ form.telefone.value|default_if_none:'' }}" maxlength="15" required>
+                </div>
+
+                <div class="lines">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" placeholder="Ex.: Rua Dirce Oliveira, Ininga" 
+                        name="endereco" value="{{ form.endereco.value|default_if_none:'' }}" class="form-control {% if form.endereco.errors %}is-invalid{% endif %}" required>
+                    {% if form.endereco.errors %}
+                        <div class="invalid-feedback">{{ form.endereco.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="linha3">
+                <div class="lines">
+                    <label for="sexo">Sexo:</label>
+                    <select name="sexo" id="sexo" class="form-control {% if form.sexo.errors %}is-invalid{% endif %}" required>
+                        <option value="M" {% if form.sexo.value == 'M' %}selected{% endif %}>Masculino</option>
+                        <option value="F" {% if form.sexo.value == 'F' %}selected{% endif %}>Feminino</option>
+                    </select>
+                </div>
+
+                <div class="lines">
+                    <label for="especialidade">Especialidade:</label>
+                    <select name="especialidade" id="especialidade" class="form-control {% if form.especialidade.errors %}is-invalid{% endif %}" required>
+                        <option value="" {% if not form.especialidade.value %}selected{% endif %} disabled>Selecione uma especialidade</option>
+                        <option value="ultrassonografia_transvaginal" {% if form.especialidade.value == 'ultrassonografia_transvaginal' %}selected{% endif %}>Ultrassonografia transvaginal</option>
+                        <option value="mamografia" {% if form.especialidade.value == 'mamografia' %}selected{% endif %}>Mamografia</option>
+                        <option value="ultrassonografia_abdome_total" {% if form.especialidade.value == 'ultrassonografia_abdome_total' %}selected{% endif %}>Ultrassonografia de abdome total</option>
+                        <option value="ortopedista" {% if form.especialidade.value == 'ortopedista' %}selected{% endif %}>Ortopedista</option>
+                    </select>
+                </div>
+
+                <div class="lines">
+                    <label for="convenios">Convênios:</label>
+                    <select name="convenio" id="convenio" class="form-control {% if form.convenio.errors %}is-invalid{% endif %}" required>
+                        <option value="conab" {% if form.convenio.value == 'conab' %}selected{% endif %}>Conab</option>
+                        <option value="fundacao_assefaz" {% if form.convenio.value == 'fundacao_assefaz' %}selected{% endif %}>Fundação Assefaz</option>
+                        <option value="geap" {% if form.convenio.value == 'geap' %}selected{% endif %}>GEAP</option>
+                        <option value="iapep" {% if form.convenio.value == 'iapep' %}selected{% endif %}>IAPEP</option>
+                        <option value="ipmt" {% if form.convenio.value == 'ipmt' %}selected{% endif %}>IPMT</option>
+                        <option value="pro_social" {% if form.convenio.value == 'pro_social' %}selected{% endif %}>Pro-Social</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="linha4">
+                <div class="lines">
+                    <label for="medico_preferencia">Médico de preferência:</label>
+                    <input type="text" placeholder="Ex.: Dra. Vilmara Moura" 
+                        name="medico_preferencia" value="{{ form.medico_preferencia.value|default_if_none:'' }}" class="form-control {% if form.medico_preferencia.errors %}is-invalid{% endif %}" required>
+                </div>
+
+                <div class="lines">
+                    <label for="data_consulta">Data:</label>
+                    <input type="date" name="data_consulta" value="{{ form.data_consulta.value|default_if_none:'' }}" class="form-control {% if form.data_consulta.errors %}is-invalid{% endif %}" required>
+                </div>
+
+                <div class="lines">
+                    <label for="horario">Horário:</label>
+                    <select name="horario" id="horario" class="form-control {% if form.horario.errors %}is-invalid{% endif %}" required>
+                        <option value="" {% if not form.horario.value %}selected{% endif %} disabled>Selecione um horário</option>
+                        <option value="08:00" {% if form.horario.value == '08:00' %}selected{% endif %}>08:00</option>
+                        <option value="10:00" {% if form.horario.value == '10:00' %}selected{% endif %}>10:00</option>
+                        <option value="14:00" {% if form.horario.value == '14:00' %}selected{% endif %}>14:00</option>
+                        <option value="16:00" {% if form.horario.value == '16:00' %}selected{% endif %}>16:00</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-success">Salvar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

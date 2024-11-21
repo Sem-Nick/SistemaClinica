@@ -1,0 +1,419 @@
+body {
+    margin: 0 auto;
+    padding: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-bar {
+    float: left;
+    background-color: #A8EBC4;
+    width: 100%;
+    height: 90px;
+    .logo {
+        height: 100%;
+        .img-logo {
+            height: 110%;
+        }
+        margin-left: 2.5%;
+        height: 100%;
+        float: left;
+        margin-bottom: 50px;
+    }
+}
+
+.sub-nav {
+    float: left;
+    background-color: #308654;
+    height: 90px;
+    width: 100%;
+    height: 50px;
+    .endereco {
+        width: 21%;
+        margin: 0.9% 0px 0px 2.5%;
+    }
+    .contato {
+        float: left;
+        width: 135px;
+        height: 25px;
+        margin: -1.2% 0px 0px 90%;
+    }
+}
+
+/* .btn-login {
+    background-color: #308654;
+    border: 2px solid #599C7C;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 20px;    
+    width: 120px;
+    cursor: pointer;
+    height: 40px;
+    text-align: center;
+}
+
+.btn-login:hover {
+    background-color: #25633f;
+} */
+
+.content-register {
+    border: 3px solid #739C59;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 600px;
+    margin-top: 50px;
+    margin: 80px auto;
+    padding: 10px;
+    
+}
+
+.input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.title {
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.inputs {
+    text-align: center;
+}
+
+.caixa-texto {
+    text-align: center;
+    font-size: 18px;
+    width: 70%;
+    height: 20px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid #739C59;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.forgot-password {
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn-create-account {
+    width: 100%;
+    max-width: 130px;
+    height: 50px;
+    font-size: 20px;
+    background-color: #308654;
+    border: 2px solid #599C7C;
+    border-radius: 10px;
+    color: white;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+}
+
+
+.btn-create-account:hover {
+    background-color: #235f3c;
+    cursor: pointer;
+}   
+
+.menu {
+    float: left;
+    border-top: 7px solid #308654; 
+    border-left: 1px solid #308654; 
+    border-right: 1px solid #308654; 
+    width: 15%;
+    margin: 1% 0% 0% 22%;
+}
+
+.option {    
+    font-size: 23px;
+    a {
+        color: black;
+    }
+    padding: 6%;
+    text-align: center;
+    border-bottom: 1px solid #308654;
+    width: 8.9;
+
+}
+
+.line {
+    float: left;
+    background-color: #308654;
+    width: 55.1%;
+    height: 2px;
+    margin-top: 3%;
+    margin-left: 22%;
+}
+
+.cards {
+    padding: 50px 0px 10px 0px;
+    width: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    float: left;    
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    width: 35%;
+}
+
+ .cards-line1 {
+    width: 100%;
+    float: left;
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+} 
+
+.line1 {
+    display: flex;   
+}  
+
+.cards-line2 {
+    width: 100%; 
+    float: left;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center; 
+} 
+
+.line2 {
+    display: flex;
+}
+
+.cards-line3 {
+    width: 100%; 
+    float: left;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center; 
+} 
+
+.line3 {
+    display: flex;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    float: left ;
+    background-color: #2B4435;
+    height: 700px;
+    width: 100%;
+}
+
+.principal {
+    float: left;
+    width: 70%; 
+    height: 900px;
+    margin: 30px 10% 0% 15%;
+}
+
+.title-bar {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100.5%;
+    height: 80px;
+    background-color: #308654;
+    float: left;
+    color: white;
+    padding-bottom: 30px;
+}
+
+.title {
+    font-size: 90%;
+}
+
+.agendamento {
+    margin-top: 20px;
+    width: 100%;
+    border: 2px solid #255338;
+    float: left;
+    height: 270px;
+    color: #255338;
+    .lines {
+        float: left; 
+        padding-left: 25px;
+        margin: 0px 2% 0px 2%;
+    }
+    .linha1 {
+        margin: 0px 9% 0px 9%;
+        padding: 40px 0px 0px 0px;
+        width: 100%;
+        float: left;
+    }
+    
+    .linha2 {
+        margin: 0px 11% 0px 11%;
+        width: 100%;
+        float: left;
+    }  
+    
+    .linha3 {
+        margin: 0px 12% 0px 12%;
+        width: 100%;
+        float: left;
+    }  
+    
+    .linha4 {
+        margin: 0px 8.7% 0px 8.7%;
+        width: 100%;
+        float: left;
+    }
+} 
+
+label {
+    font-family: sans-serif;
+    font-size: 19px;
+    padding-right: 5px;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 170px;
+    height: 19px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #255338;
+    margin-bottom: 30px;    
+}
+
+select {
+    width: 150px;
+    height: 22px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #255338;  
+    color: #255338;
+    margin-bottom: 30px;
+    color: gray;
+}
+
+textarea {
+    width: 245%;
+}
+
+.datas {
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 22px;
+}
+
+
+.btn {
+    margin: 20px 40% 0px 43%;
+    background-color: #2C734A;
+    color: white;
+    border: 2px solid #599C7C;
+    width: 130px;
+    height: 40px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #235f3c;
+}
+
+.menu-links {
+    float: left;
+    color: black;
+    background-color: rgba(48, 134, 84, 1);
+    width: 10%;
+    margin: 2.5% 0% 0% 2%;
+    text-align: center;
+    height: 400px;
+    border-radius: 8px;
+}
+
+a {
+        text-decoration: none;    
+        color: rgb(255, 255, 255);
+    }
+
+.links-menu {
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 1px solid white;
+    padding: 12px 28px 12px 0px;
+    align-items: center;
+    width: 100%;
+}
+
+
+.bar-top {
+    border-radius: 7px;
+    float: left;
+    background-color: rgba(48, 134, 84, 1);
+    width: 85%;
+    height: 55px;
+    margin: 2.5% 0px 0px 2%;
+}
+
+.btn-bar-top {
+    background-color: rgba(171, 240, 128, 1);
+    color: black;
+    margin: 0.4% 9px 0px 85%;
+    font-size: 21px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    align-items: center;
+    padding-top: 7.2px;
+}
+
+.btn-bar-top:hover {
+    background-color: rgb(132, 189, 98);
+}
+
+.table-agendas{
+    float: left;
+    width: 85.27%;
+    margin: 10px 0px 0px 1.9%;
+    color: rgba(29, 67, 45, 1);
+}
+
+.column {
+    width: 20%;
+    height: 30px;
+    font-size: 20px;
+    border-bottom: 1px solid black; 
+}
+
+.column6 {
+    width: 15%;
+    height: 30px;
+    font-size: 20px;
+    border-bottom: 1px solid black; 
+}
+
+.lines-exame {
+    width: 100%;
+    text-align: center; 
+}
+
+
+.line-exame {
+    height: 25px;
+    padding: 4px 0px 6px 0px;   
+    font-size: 17px;
+    border-bottom: 1px solid black;
+} 

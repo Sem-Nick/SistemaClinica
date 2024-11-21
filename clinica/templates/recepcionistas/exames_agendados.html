@@ -1,0 +1,37 @@
+{% extends "base_recepcionista.html" %}
+{% load static %}
+
+{% block 'dashboard' %}
+
+<div class="bar-top">
+    <a href="{% url 'agendar_exame' %}"><div class="btn-bar-top">Agendar Exame</div></a>
+</div>
+<table class="table-agendas">
+  <div class="columns">
+  <thead class="">
+    <tr>
+      <th class="column">Nome</th>
+      <th class="column">CPF</th>
+      <th class="column">Data de Nascimento</th>
+      <th class="column">Médico de Preferência</th>
+      <th class="column">Data da Consulta</th>
+    </tr>
+  </thead>
+  </div>
+  <tbody class="lines-exame">
+    {% for exame in exames %}
+    <tr>
+      <td class="line-exame">{{ exame.nome }}</td>
+      <td class="line-exame">{{ exame.cpf }}</td>
+      <td class="line-exame">{{ exame.data_nascimento }}</td>
+      <td class="line-exame">{{ exame.medico_preferencia }}</td>
+      <td class="line-exame">{{ exame.data_consulta }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="6">Nenhum exame agendado.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
